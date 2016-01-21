@@ -22,7 +22,7 @@
 
 import Foundation
 
-public class ThemeController {
+public class ThemeController: NSObject {
     
     public static var sharedController = ThemeController()
     

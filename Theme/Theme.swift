@@ -22,7 +22,7 @@
 
 import UIKit
 
-public class Theme {
+public class Theme: NSObject {
     
     let name: String
     let themesDictionary: NSDictionary

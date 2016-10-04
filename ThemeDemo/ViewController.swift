@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         
         title = "Theme Demo"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next Theme", style: .Plain, target: self, action: "cycleTheme")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next Theme", style: .Plain, target: self, action: #selector(cycleTheme))
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Theme"
-  s.version      = "1.0.1"
+  s.version      = "2.0.0"
   s.summary      = "Support one or more configurable appearance themes."
   s.author       = 'Hilton Campbell'
   s.homepage     = "https://github.com/CrossWaterBridge/Theme"

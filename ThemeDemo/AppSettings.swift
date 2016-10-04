@@ -32,7 +32,6 @@ enum AppTheme: String {
 }
 
 class AppSettings {
-    
     private static let ThemeKey = "theme"
     
     init() {
@@ -42,15 +41,14 @@ class AppSettings {
     
     var appTheme: AppTheme {
         get {
-            if let rawValue = NSUserDefaults.standardUserDefaults().stringForKey(AppSettings.ThemeKey), appTheme = AppTheme(rawValue: rawValue) {
+            if let rawValue = UserDefaults.standard.string(forKey: AppSettings.ThemeKey), let appTheme = AppTheme(rawValue: rawValue) {
                 return appTheme
             } else {
                 return .Day
             }
         }
         set {
-            NSUserDefaults.standardUserDefaults().setObject(newValue.rawValue, forKey: AppSettings.ThemeKey)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.set(newValue.rawValue, forKey: AppSettings.ThemeKey)
             
             ThemeController.sharedController.themeName = newValue.rawValue
         }
@@ -58,7 +56,7 @@ class AppSettings {
     
     func cycleTheme() {
         // Choose the next app theme
-        appTheme = AppTheme.Choices[((AppTheme.Choices.indexOf(appTheme) ?? 0) + 1) % AppTheme.Choices.count]
+        appTheme = AppTheme.Choices[((AppTheme.Choices.index(of: appTheme) ?? 0) + 1) % AppTheme.Choices.count]
     }
     
 }

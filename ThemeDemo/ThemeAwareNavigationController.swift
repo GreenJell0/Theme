@@ -24,22 +24,20 @@ import UIKit
 import Theme
 
 class ThemeAwareNavigationController: UINavigationController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        observeTheme(self.dynamicType.themeDidChange)
+        observeTheme(type(of: self).didChange)
     }
     
-    func themeDidChange(theme: Theme) {
-        switch theme.stringForKeyPath("navigationBar.barStyle") ?? "" {
+    func didChange(theme: Theme) {
+        switch theme.string(forKeyPath: "navigationBar.barStyle") ?? "" {
         case "black":
-            navigationBar.barStyle = .Black
-            toolbar.barStyle = .Black
+            navigationBar.barStyle = .black
+            toolbar.barStyle = .black
         default:
-            navigationBar.barStyle = .Default
-            toolbar.barStyle = .Default
+            navigationBar.barStyle = .default
+            toolbar.barStyle = .default
         }
     }
-    
 }

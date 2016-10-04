@@ -23,7 +23,6 @@
 import Foundation
 
 public class ThemeController: NSObject {
-    
     public static var sharedController = ThemeController()
     
     public var themeName = "" {
@@ -40,13 +39,12 @@ public class ThemeController: NSObject {
     
     var themesDictionary: NSDictionary = [:]
     
-    public func registerThemes(themesDictionary: NSDictionary) {
+    public func registerThemes(_ themesDictionary: NSDictionary) {
         self.themesDictionary = themesDictionary
     }
     
-    public func observeTheme<T: AnyObject>(object: T, _ f: T -> Theme -> Void) {
+    public func observeTheme<T: AnyObject>(_ object: T, _ f: @escaping (T) -> (Theme) -> Void) {
         themeObservers.add(object, f)
         f(object)(theme)
     }
-    
 }

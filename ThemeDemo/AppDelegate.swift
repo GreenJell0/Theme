@@ -25,32 +25,30 @@ import Theme
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     let appSettings = AppSettings()
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Load and register the app's themes
-        let themePath = NSBundle.mainBundle().pathForResource("Theme", ofType: "plist")
+        let themePath = Bundle.main.path(forResource: "Theme", ofType: "plist")
         let themeDictionary = NSDictionary(contentsOfFile: themePath!)
         ThemeController.sharedController.registerThemes(themeDictionary!)
         
         let viewController = ViewController(appSettings: appSettings)
         let navigationController = ThemeAwareNavigationController(rootViewController: viewController)
         
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
         // Observe theme changes
-        ThemeController.sharedController.observeTheme(self, self.dynamicType.themeDidChange)
+        ThemeController.sharedController.observeTheme(self, type(of: self).didChange)
         
         return true
     }
     
-    func themeDidChange(theme: Theme) {
-        window?.tintColor = theme.colorForKeyPath("tintColor")
+    func didChange(theme: Theme) {
+        window?.tintColor = theme.color(forKeyPath: "tintColor")
     }
-
 }
 

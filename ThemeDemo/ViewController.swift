@@ -24,13 +24,12 @@ import UIKit
 import Theme
 
 class ViewController: UIViewController {
-    
     static let CellIdentifier = "Cell"
     
     let appSettings: AppSettings
     
     lazy var tableView: UITableView = {
-        let tableView = ThemeAwareTableView(frame: .zero, style: .Grouped)
+        let tableView = ThemeAwareTableView(frame: .zero, style: .grouped)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +43,7 @@ class ViewController: UIViewController {
         
         title = "Theme Demo"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next Theme", style: .Plain, target: self, action: #selector(cycleTheme))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next Theme", style: .plain, target: self, action: #selector(cycleTheme))
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -55,7 +54,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.estimatedRowHeight = 44
-        tableView.registerClass(ThemeAwareTableViewCell.self, forCellReuseIdentifier: ViewController.CellIdentifier)
+        tableView.register(ThemeAwareTableViewCell.self, forCellReuseIdentifier: ViewController.CellIdentifier)
         
         view.addSubview(tableView)
         
@@ -63,13 +62,13 @@ class ViewController: UIViewController {
             "tableView": tableView,
         ]
         
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|[tableView]|", options: [], metrics: nil, views: views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[tableView]|", options: [], metrics: nil, views: views))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|[tableView]|", options: [], metrics: nil, views: views))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[tableView]|", options: [], metrics: nil, views: views))
         
-        observeTheme(self.dynamicType.themeDidChange)
+        observeTheme(type(of: self).didChange)
     }
 
-    func themeDidChange(theme: Theme) {
+    func didChange(theme: Theme) {
         // You can make theme adjustments here
     }
     
@@ -77,31 +76,28 @@ class ViewController: UIViewController {
         appSettings.cycleTheme()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if let indexPath = tableView.indexPathForSelectedRow {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         tableView.flashScrollIndicators()
     }
-
 }
 
 // MARK: - UITableViewDataSource
-
 extension ViewController: UITableViewDataSource {
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 1
@@ -110,28 +106,24 @@ extension ViewController: UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        switch indexPath.section {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch (indexPath as NSIndexPath).section {
         case 0:
-            let cell = tableView.dequeueReusableCellWithIdentifier(ViewController.CellIdentifier, forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: ViewController.CellIdentifier, for: indexPath)
             cell.textLabel?.text = "Hello, world!"
             return cell
         default:
             break
         }
         
-        assert(false, "unhandled case in \(__FUNCTION__)")
-        return tableView.dequeueReusableCellWithIdentifier(ViewController.CellIdentifier, forIndexPath: indexPath)
+        assert(false, "unhandled case in \(#function)")
+        return tableView.dequeueReusableCell(withIdentifier: ViewController.CellIdentifier, for: indexPath)
     }
-    
 }
 
 // MARK: - UITableViewDelegate
-
 extension ViewController: UITableViewDelegate {
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
-    
 }

@@ -23,7 +23,6 @@
 import UIKit
 
 public class Theme: NSObject {
-    
     let name: String
     let themesDictionary: NSDictionary
     
@@ -32,8 +31,8 @@ public class Theme: NSObject {
         self.themesDictionary = themesDictionary
     }
     
-    public func stringForKeyPath(keyPath: String) -> String? {
-        let value = themesDictionary.valueForKeyPath(keyPath)
+    public func string(forKeyPath keyPath: String) -> String? {
+        let value = themesDictionary.value(forKeyPath: keyPath)
         switch value {
         case let values as NSDictionary:
             return (values[name] as? String) ?? (values["*"] as? String)
@@ -42,12 +41,11 @@ public class Theme: NSObject {
         }
     }
     
-    public func colorForKeyPath(keyPath: String) -> UIColor? {
-        if let string = stringForKeyPath(keyPath) {
+    public func color(forKeyPath keyPath: String) -> UIColor? {
+        if let string = string(forKeyPath: keyPath) {
             return UIColor(string: string)
         } else {
             return nil
         }
     }
-
 }

@@ -29,10 +29,10 @@ import Dispatch
 
 class ObserverSetEntry<Parameters> {
     
-    private weak var object: AnyObject?
-    private let f: AnyObject -> Parameters -> Void
+    fileprivate weak var object: AnyObject?
+    fileprivate let f: (AnyObject) -> (Parameters) -> Void
     
-    private init(object: AnyObject, f: AnyObject -> Parameters -> Void) {
+    fileprivate init(object: AnyObject, f: @escaping (AnyObject) -> (Parameters) -> Void) {
         self.object = object
         self.f = f
     }
@@ -43,15 +43,15 @@ class ObserverSet<Parameters> {
     
     // Locking support
     
-    private var queue = dispatch_queue_create("com.mikeash.ObserverSet", nil)
+    fileprivate var queue = DispatchQueue(label: "com.mikeash.ObserverSet", attributes: [])
     
-    private func synchronized(f: Void -> Void) {
-        dispatch_sync(queue, f)
+    fileprivate func synchronized(_ f: (Void) -> Void) {
+        queue.sync(execute: f)
     }
     
     // Main implementation
     
-    private var entries: [ObserverSetEntry<Parameters>] = []
+    fileprivate var entries: [ObserverSetEntry<Parameters>] = []
     
     init() {}
     
@@ -59,7 +59,8 @@ class ObserverSet<Parameters> {
     /// - Note: Because `object` is held weakly there may be no need to keep a reference to the returned
     /// observer set entry for explicit removal.
     /// - returns: an observer set entry which can be passed to `remove:` to stop observing
-    func add<T: AnyObject>(object: T, _ f: T -> Parameters -> Void) -> ObserverSetEntry<Parameters> {
+    @discardableResult
+    func add<T: AnyObject>(_ object: T, _ f: @escaping (T) -> (Parameters) -> Void) -> ObserverSetEntry<Parameters> {
         let entry = ObserverSetEntry<Parameters>(object: object, f: { f($0 as! T) })
         synchronized {
             self.entries.append(entry)
@@ -69,20 +70,20 @@ class ObserverSet<Parameters> {
     
     /// Adds an observer `f` which will be called on notification.
     /// - returns: an observer set entry which should be passed to `remove:` to stop observing
-    func add(f: Parameters -> Void) -> ObserverSetEntry<Parameters> {
+    func add(_ f: @escaping (Parameters) -> Void) -> ObserverSetEntry<Parameters> {
         return self.add(self, { ignored in f })
     }
     
     /// Removes an observer set entry.
-    func remove(entry: ObserverSetEntry<Parameters>) {
+    func remove(_ entry: ObserverSetEntry<Parameters>) {
         synchronized {
             self.entries = self.entries.filter{ $0 !== entry }
         }
     }
     
     /// Notifies current observers.
-    func notify(parameters: Parameters) {
-        var toCall: [Parameters -> Void] = []
+    func notify(_ parameters: Parameters) {
+        var toCall: [(Parameters) -> Void] = []
         
         synchronized {
             for entry in self.entries {
@@ -114,7 +115,7 @@ extension ObserverSet: CustomStringConvertible {
                 ? "\(entry.f)"
                 : "\(entry.object) \(entry.f)")
         }
-        let joined = strings.joinWithSeparator(", ")
+        let joined = strings.joined(separator: ", ")
         
         return "\(Mirror(reflecting: self)): (\(joined))"
     }

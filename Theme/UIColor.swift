@@ -23,74 +23,73 @@
 import UIKit
 
 extension UIColor {
-    
     struct Static {
         static let regex = try! NSRegularExpression(pattern: "^(?:#([0-9a-fA-F]{3})|#([0-9a-fA-F]{6})|rgb\\(([^)]+)\\)|rgba\\(([^)]+)\\))$", options: [])
     }
     
     convenience init?(string: String) {
-        if let match = Static.regex.firstMatchInString(string, options: [], range: NSMakeRange(0, (string as NSString).length)) {
+        if let match = Static.regex.firstMatch(in: string, options: [], range: NSMakeRange(0, (string as NSString).length)) {
             // #cf0
-            let range1 = match.rangeAtIndex(1)
+            let range1 = match.rangeAt(1)
             if range1.location != NSNotFound {
-                let scanner = NSScanner(string: (string as NSString).substringWithRange(range1))
+                let scanner = Scanner(string: (string as NSString).substring(with: range1))
                 
                 var rgb: UInt32 = 0
-                scanner.scanHexInt(&rgb)
+                scanner.scanHexInt32(&rgb)
                 
                 self.init(red: CGFloat((rgb & 0xF00) >> 8) / 15, green: CGFloat((rgb & 0x0F0) >> 4) / 15, blue: CGFloat(rgb & 0x00F) / 15, alpha: 1)
                 return
             }
             
             // #ccff00
-            let range2 = match.rangeAtIndex(2)
+            let range2 = match.rangeAt(2)
             if range2.location != NSNotFound {
-                let scanner = NSScanner(string: (string as NSString).substringWithRange(range2))
+                let scanner = Scanner(string: (string as NSString).substring(with: range2))
                 
                 var rgb: UInt32 = 0
-                scanner.scanHexInt(&rgb)
+                scanner.scanHexInt32(&rgb)
                 
                 self.init(red: CGFloat((rgb & 0xFF0000) >> 16) / 255, green: CGFloat((rgb & 0x00FF00) >> 8) / 255, blue: CGFloat(rgb & 0x0000FF) / 255, alpha: 1)
                 return
             }
             
             // rgb(204, 255, 0)
-            let range3 = match.rangeAtIndex(3)
+            let range3 = match.rangeAt(3)
             if range3.location != NSNotFound {
-                let scanner = NSScanner(string: (string as NSString).substringWithRange(range3))
+                let scanner = Scanner(string: (string as NSString).substring(with: range3))
                 
                 var r: Int = 0
-                scanner.scanInteger(&r)
-                scanner.scanString(",", intoString: nil)
+                scanner.scanInt(&r)
+                scanner.scanString(",", into: nil)
                 
                 var g: Int = 0
-                scanner.scanInteger(&g)
-                scanner.scanString(",", intoString: nil)
+                scanner.scanInt(&g)
+                scanner.scanString(",", into: nil)
                 
                 var b: Int = 0
-                scanner.scanInteger(&b)
-                scanner.scanString(",", intoString: nil)
+                scanner.scanInt(&b)
+                scanner.scanString(",", into: nil)
                 
                 self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: 1)
                 return
             }
             
             // rgba(204, 255, 0, 0.7)
-            let range4 = match.rangeAtIndex(4)
+            let range4 = match.rangeAt(4)
             if range4.location != NSNotFound {
-                let scanner = NSScanner(string: (string as NSString).substringWithRange(range4))
+                let scanner = Scanner(string: (string as NSString).substring(with: range4))
                 
                 var r: Int = 0
-                scanner.scanInteger(&r)
-                scanner.scanString(",", intoString: nil)
+                scanner.scanInt(&r)
+                scanner.scanString(",", into: nil)
                 
                 var g: Int = 0
-                scanner.scanInteger(&g)
-                scanner.scanString(",", intoString: nil)
+                scanner.scanInt(&g)
+                scanner.scanString(",", into: nil)
                 
                 var b: Int = 0
-                scanner.scanInteger(&b)
-                scanner.scanString(",", intoString: nil)
+                scanner.scanInt(&b)
+                scanner.scanString(",", into: nil)
                 
                 var a: Double = 0
                 scanner.scanDouble(&a)
@@ -102,5 +101,4 @@ extension UIColor {
         
         return nil
     }
-    
 }

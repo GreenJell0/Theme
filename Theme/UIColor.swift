@@ -22,12 +22,12 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     struct Static {
         static let regex = try! NSRegularExpression(pattern: "^(?:#([0-9a-fA-F]{3})|#([0-9a-fA-F]{6})|rgb\\(([^)]+)\\)|rgba\\(([^)]+)\\))$", options: [])
     }
     
-    convenience init?(string: String) {
+    public convenience init?(string: String) {
         if let match = Static.regex.firstMatch(in: string, options: [], range: NSMakeRange(0, (string as NSString).length)) {
             // #cf0
             let range1 = match.rangeAt(1)

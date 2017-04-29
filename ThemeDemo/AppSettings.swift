@@ -36,7 +36,7 @@ class AppSettings {
     
     init() {
         // Set the initial theme on app launch
-        ThemeController.sharedController.themeName = appTheme.rawValue
+        ThemeController.shared.themeName = appTheme.rawValue
     }
     
     var appTheme: AppTheme {
@@ -50,7 +50,7 @@ class AppSettings {
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: AppSettings.ThemeKey)
             
-            ThemeController.sharedController.themeName = newValue.rawValue
+            ThemeController.shared.themeName = newValue.rawValue
         }
     }
     

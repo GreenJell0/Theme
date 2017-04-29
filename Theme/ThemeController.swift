@@ -23,28 +23,28 @@
 import Foundation
 
 public class ThemeController: NSObject {
-    public static var sharedController = ThemeController()
+    public static var shared = ThemeController()
+    
+    fileprivate var theme: Theme.Type?
     
     public var themeName = "" {
         didSet {
-            themeObservers.notify(theme)
+            theme?.setTheme(themeName: themeName)
+
+            themeObservers.notify()
         }
     }
     
-    public var theme: Theme {
-        return Theme(named: themeName, themesDictionary: themesDictionary)
+    public func registerTheme(_ theme: Theme.Type) {
+        self.theme = theme
+        
+        theme.setTheme(themeName: themeName)
     }
     
-    let themeObservers = ObserverSet<Theme>()
+    let themeObservers = ObserverSet<Void>()
     
-    var themesDictionary: NSDictionary = [:]
-    
-    public func registerThemes(_ themesDictionary: NSDictionary) {
-        self.themesDictionary = themesDictionary
-    }
-    
-    public func observeTheme<T: AnyObject>(_ object: T, _ f: @escaping (T) -> (Theme) -> Void) {
+    public func observeTheme<T: AnyObject>(_ object: T, _ f: @escaping (T) -> () -> Void) {
         themeObservers.add(object, f)
-        f(object)(theme)
+        f(object)()
     }
 }

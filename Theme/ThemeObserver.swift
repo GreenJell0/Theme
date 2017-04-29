@@ -25,13 +25,13 @@ import UIKit
 public protocol ThemeObserver {}
 
 extension ThemeObserver where Self: UIView {
-    public func observeTheme(_ f: @escaping (Self) -> (Theme) -> Void) {
-        ThemeController.sharedController.observeTheme(self, f)
+    public func observeTheme(_ f: @escaping (Self) -> () -> Void) {
+        ThemeController.shared.observeTheme(self, f)
     }
 }
 
 extension ThemeObserver where Self: UIViewController {
-    public func observeTheme(_ f: @escaping (Self) -> (Theme) -> Void) {
-        ThemeController.sharedController.observeTheme(self, f)
+    public func observeTheme(_ f: @escaping (Self) -> () -> Void) {
+        ThemeController.shared.observeTheme(self, f)
     }
 }

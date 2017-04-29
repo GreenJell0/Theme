@@ -29,10 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Load and register the app's themes
-        let themePath = Bundle.main.path(forResource: "Theme", ofType: "plist")
-        let themeDictionary = NSDictionary(contentsOfFile: themePath!)
-        ThemeController.sharedController.registerThemes(themeDictionary!)
+        ThemeController.shared.registerTheme(DemoTheme.self)
         
         let viewController = ViewController(appSettings: appSettings)
         let navigationController = ThemeAwareNavigationController(rootViewController: viewController)
@@ -42,13 +39,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         // Observe theme changes
-        ThemeController.sharedController.observeTheme(self, type(of: self).didChange)
+        ThemeController.shared.observeTheme(self, type(of: self).didChange)
         
         return true
     }
     
-    func didChange(theme: Theme) {
-        window?.tintColor = theme.color(forKeyPath: "tintColor")
+    func didChange() {
+        window?.tintColor = DemoTheme.tintColor
     }
 }
 

@@ -23,9 +23,5 @@
 import UIKit
 
 extension UIViewController: ThemeObserver {
-    
-    public var theme: Theme {
-        return ThemeController.sharedController.theme
-    }
-    
+        
 }

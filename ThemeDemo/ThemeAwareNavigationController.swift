@@ -30,8 +30,8 @@ class ThemeAwareNavigationController: UINavigationController {
         observeTheme(type(of: self).didChange)
     }
     
-    func didChange(theme: Theme) {
-        switch theme.string(forKeyPath: "navigationBar.barStyle") ?? "" {
+    func didChange() {
+        switch DemoTheme.navigationBarBarStyle ?? "" {
         case "black":
             navigationBar.barStyle = .black
             toolbar.barStyle = .black

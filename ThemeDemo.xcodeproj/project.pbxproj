@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4A675B61EB103A500355089 /* DemoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A675B51EB103A500355089 /* DemoTheme.swift */; };
 		D9D608DA1C31B10700B10DA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D608D91C31B10700B10DA6 /* AppDelegate.swift */; };
 		D9D608DC1C31B10700B10DA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D608DB1C31B10700B10DA6 /* ViewController.swift */; };
 		D9D608E11C31B10700B10DA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9D608E01C31B10700B10DA6 /* Assets.xcassets */; };
 		D9D608E41C31B10700B10DA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9D608E21C31B10700B10DA6 /* LaunchScreen.storyboard */; };
 		D9D608EC1C31B1A600B10DA6 /* Theme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D608EB1C31B1A600B10DA6 /* Theme.framework */; };
-		D9D608EE1C31B21200B10DA6 /* Theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9D608ED1C31B21200B10DA6 /* Theme.plist */; };
 		D9D608F01C31B44E00B10DA6 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D608EF1C31B44E00B10DA6 /* AppSettings.swift */; };
 		D9D608F51C31B60200B10DA6 /* ThemeAwareNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D608F41C31B60200B10DA6 /* ThemeAwareNavigationController.swift */; };
 		D9D608F81C31B6BD00B10DA6 /* ThemeAwareTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D608F61C31B6BD00B10DA6 /* ThemeAwareTableView.swift */; };
@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D4A675B51EB103A500355089 /* DemoTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTheme.swift; sourceTree = "<group>"; };
 		D9D608D61C31B10700B10DA6 /* ThemeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThemeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9D608D91C31B10700B10DA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9D608DB1C31B10700B10DA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,7 +28,6 @@
 		D9D608E31C31B10700B10DA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9D608E51C31B10700B10DA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ThemeDemo/Info.plist; sourceTree = "<group>"; };
 		D9D608EB1C31B1A600B10DA6 /* Theme.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Theme.framework; path = "build/Debug-iphoneos/Theme.framework"; sourceTree = "<group>"; };
-		D9D608ED1C31B21200B10DA6 /* Theme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Theme.plist; path = ThemeDemo/Theme.plist; sourceTree = "<group>"; };
 		D9D608EF1C31B44E00B10DA6 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D9D608F41C31B60200B10DA6 /* ThemeAwareNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeAwareNavigationController.swift; sourceTree = "<group>"; };
 		D9D608F61C31B6BD00B10DA6 /* ThemeAwareTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeAwareTableView.swift; sourceTree = "<group>"; };
@@ -69,10 +69,11 @@
 			children = (
 				D9D608D91C31B10700B10DA6 /* AppDelegate.swift */,
 				D9D608EF1C31B44E00B10DA6 /* AppSettings.swift */,
-				D9D608DB1C31B10700B10DA6 /* ViewController.swift */,
+				D4A675B51EB103A500355089 /* DemoTheme.swift */,
 				D9D608F41C31B60200B10DA6 /* ThemeAwareNavigationController.swift */,
 				D9D608F61C31B6BD00B10DA6 /* ThemeAwareTableView.swift */,
 				D9D608F71C31B6BD00B10DA6 /* ThemeAwareTableViewCell.swift */,
+				D9D608DB1C31B10700B10DA6 /* ViewController.swift */,
 			);
 			name = Main;
 			path = ThemeDemo;
@@ -84,7 +85,6 @@
 				D9D608E01C31B10700B10DA6 /* Assets.xcassets */,
 				D9D608E21C31B10700B10DA6 /* LaunchScreen.storyboard */,
 				D9D608E51C31B10700B10DA6 /* Info.plist */,
-				D9D608ED1C31B21200B10DA6 /* Theme.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -156,7 +156,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9D608EE1C31B21200B10DA6 /* Theme.plist in Resources */,
 				D9D608E41C31B10700B10DA6 /* LaunchScreen.storyboard in Resources */,
 				D9D608E11C31B10700B10DA6 /* Assets.xcassets in Resources */,
 			);
@@ -170,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9D608DC1C31B10700B10DA6 /* ViewController.swift in Sources */,
+				D4A675B61EB103A500355089 /* DemoTheme.swift in Sources */,
 				D9D608DA1C31B10700B10DA6 /* AppDelegate.swift in Sources */,
 				D9D608F51C31B60200B10DA6 /* ThemeAwareNavigationController.swift in Sources */,
 				D9D608F01C31B44E00B10DA6 /* AppSettings.swift in Sources */,

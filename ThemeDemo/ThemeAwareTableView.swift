@@ -34,8 +34,8 @@ class ThemeAwareTableView: UITableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func didChange(theme: Theme) {
-        separatorColor = theme.color(forKeyPath: "tableView.separatorColor")
-        backgroundColor = theme.color(forKeyPath: "tableView.backgroundColor")
+    func didChange() {
+        separatorColor = DemoTheme.tableViewSeparatorColor
+        backgroundColor = DemoTheme.tableViewBackgroundColor
     }
 }

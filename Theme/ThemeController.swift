@@ -35,7 +35,7 @@ public class ThemeController: NSObject {
         }
     }
     
-    public func registerTheme(_ theme: Theme.Type) {
+    public func setTheme(_ theme: Theme.Type) {
         self.theme = theme
         
         theme.setTheme(themeName: themeName)

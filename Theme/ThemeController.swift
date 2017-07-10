@@ -39,6 +39,8 @@ public class ThemeController: NSObject {
         self.theme = theme
         
         theme.setTheme(themeName: themeName)
+        
+        themeObservers.notify()
     }
     
     let themeObservers = ObserverSet<Void>()

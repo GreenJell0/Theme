@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name         = "Theme"
-  s.version      = "3.0.0"
+  s.version      = "3.1.0"
   s.summary      = "Support one or more configurable appearance themes."
-  s.author       = 'Hilton Campbell'
+  s.author       = 'Hilton Campbell', 'Stephan Heilner'
   s.homepage     = "https://github.com/CrossWaterBridge/Theme"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.source       = { :git => "https://github.com/CrossWaterBridge/Theme.git", :tag => s.version.to_s }

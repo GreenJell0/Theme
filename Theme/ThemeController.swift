@@ -21,6 +21,7 @@
 //
 
 import Foundation
+import ObserverSet
 
 public class ThemeController: NSObject {
     public static var shared = ThemeController()

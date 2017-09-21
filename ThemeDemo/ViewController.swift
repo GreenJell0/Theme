@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         // You can make theme adjustments here
     }
     
-    func cycleTheme() {
+    @objc func cycleTheme() {
         appSettings.cycleTheme()
     }
     

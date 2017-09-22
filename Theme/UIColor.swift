@@ -30,7 +30,7 @@ public extension UIColor {
     public convenience init?(string: String) {
         if let match = Static.regex.firstMatch(in: string, options: [], range: NSMakeRange(0, (string as NSString).length)) {
             // #cf0
-            let range1 = match.rangeAt(1)
+            let range1 = match.range(at: 1)
             if range1.location != NSNotFound {
                 let scanner = Scanner(string: (string as NSString).substring(with: range1))
                 
@@ -42,7 +42,7 @@ public extension UIColor {
             }
             
             // #ccff00
-            let range2 = match.rangeAt(2)
+            let range2 = match.range(at: 2)
             if range2.location != NSNotFound {
                 let scanner = Scanner(string: (string as NSString).substring(with: range2))
                 
@@ -54,7 +54,7 @@ public extension UIColor {
             }
             
             // rgb(204, 255, 0)
-            let range3 = match.rangeAt(3)
+            let range3 = match.range(at: 3)
             if range3.location != NSNotFound {
                 let scanner = Scanner(string: (string as NSString).substring(with: range3))
                 
@@ -75,7 +75,7 @@ public extension UIColor {
             }
             
             // rgba(204, 255, 0, 0.7)
-            let range4 = match.rangeAt(4)
+            let range4 = match.range(at: 4)
             if range4.location != NSNotFound {
                 let scanner = Scanner(string: (string as NSString).substring(with: range4))
                 

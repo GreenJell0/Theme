@@ -32,7 +32,7 @@ public class ThemeController: NSObject {
         didSet {
             theme?.setTheme(themeName: themeName)
 
-            themeObservers.notify()
+            themeObservers.notify(())
         }
     }
     
@@ -41,10 +41,10 @@ public class ThemeController: NSObject {
         
         theme.setTheme(themeName: themeName)
         
-        themeObservers.notify()
+        themeObservers.notify(())
     }
     
-    let themeObservers = ObserverSet<Void>()
+    let themeObservers = ObserverSet<()>()
     
     public func observeTheme<T: AnyObject>(_ object: T, _ f: @escaping (T) -> () -> Void) {
         themeObservers.add(object, f)

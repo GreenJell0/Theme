@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         observeTheme(type(of: self).didChange)
     }
 
-    func didChange() {
+    func didChange(_ f: ()) {
         // You can make theme adjustments here
     }
     

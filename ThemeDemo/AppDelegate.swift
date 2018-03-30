@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func didChange() {
+    func didChange(_ f: ()) {
         window?.tintColor = DemoTheme.tintColor
     }
 }

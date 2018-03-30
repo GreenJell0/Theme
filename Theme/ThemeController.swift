@@ -46,8 +46,8 @@ public class ThemeController: NSObject {
     
     let themeObservers = ObserverSet<()>()
     
-    public func observeTheme<T: AnyObject>(_ object: T, _ f: @escaping (T) -> () -> Void) {
+    public func observeTheme<T: AnyObject>(_ object: T, _ f: @escaping (T) -> (()) -> Void) {
         themeObservers.add(object, f)
-        f(object)()
+        f(object)(())
     }
 }

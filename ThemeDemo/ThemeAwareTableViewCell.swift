@@ -36,7 +36,7 @@ class ThemeAwareTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func didChange() {
+    func didChange(_ f: ()) {
         textLabel?.textColor = DemoTheme.tableViewCellTextColor
         backgroundColor = DemoTheme.tableViewCellBackgroundColor
         selectedBackgroundView?.backgroundColor = DemoTheme.tableViewCellSelectedBackgroundColor

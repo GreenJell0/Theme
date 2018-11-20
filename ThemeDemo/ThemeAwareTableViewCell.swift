@@ -29,14 +29,14 @@ class ThemeAwareTableViewCell: UITableViewCell {
         
         selectedBackgroundView = UIView()
         
-        observeTheme(type(of: self).didChange)
+        observeTheme(type(of: self).themeDidChange)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func didChange(_ f: ()) {
+    func themeDidChange() {
         textLabel?.textColor = DemoTheme.tableViewCellTextColor
         backgroundColor = DemoTheme.tableViewCellBackgroundColor
         selectedBackgroundView?.backgroundColor = DemoTheme.tableViewCellSelectedBackgroundColor

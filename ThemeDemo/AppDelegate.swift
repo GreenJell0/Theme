@@ -39,12 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         // Observe theme changes
-        ThemeController.shared.observeTheme(self, type(of: self).didChange)
+        ThemeController.shared.observeTheme(self, type(of: self).themeDidChange)
         
         return true
     }
     
-    func didChange(_ f: ()) {
+    func themeDidChange() {
         window?.tintColor = DemoTheme.tintColor
     }
 }

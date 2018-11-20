@@ -65,10 +65,10 @@ class ViewController: UIViewController {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|[tableView]|", options: [], metrics: nil, views: views))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[tableView]|", options: [], metrics: nil, views: views))
         
-        observeTheme(type(of: self).didChange)
+        observeTheme(type(of: self).themeDidChange)
     }
 
-    func didChange(_ f: ()) {
+    func themeDidChange() {
         // You can make theme adjustments here
     }
     

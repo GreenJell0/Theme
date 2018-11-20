@@ -27,10 +27,10 @@ class ThemeAwareNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        observeTheme(type(of: self).didChange)
+        observeTheme(type(of: self).themeDidChange)
     }
     
-    func didChange(_ f: ()) {
+    func themeDidChange() {
         switch DemoTheme.navigationBarBarStyle ?? "" {
         case "black":
             navigationBar.barStyle = .black

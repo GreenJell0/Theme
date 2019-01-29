@@ -58,14 +58,14 @@ class ViewController: UIViewController {
         
         view.addSubview(tableView)
         
-        let views = [
-            "tableView": tableView,
-        ]
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
         
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|[tableView]|", options: [], metrics: nil, views: views))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[tableView]|", options: [], metrics: nil, views: views))
-        
-        observeTheme(type(of: self).themeDidChange)
+        observeTheme(themeDidChange)
     }
 
     func themeDidChange() {

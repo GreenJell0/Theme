@@ -24,12 +24,12 @@ import UIKit
 import Theme
 
 class ThemeAwareTableViewCell: UITableViewCell {
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectedBackgroundView = UIView()
         
-        observeTheme(type(of: self).themeDidChange)
+        observeTheme(themeDidChange)
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -21,7 +21,7 @@
 //
 
 import Foundation
-import ObserverSet
+import Signals
 
 public class ThemeController: NSObject {
     public static var shared = ThemeController()
@@ -32,7 +32,7 @@ public class ThemeController: NSObject {
         didSet {
             theme?.setTheme(themeName: themeName)
 
-            themeObservers.notify(())
+            themeObservers.fire(())
         }
     }
     
@@ -41,18 +41,14 @@ public class ThemeController: NSObject {
         
         theme.setTheme(themeName: themeName)
         
-        themeObservers.notify(())
+        themeObservers.fire(())
     }
     
-    let themeObservers = ObserverSet<()>()
+    let themeObservers = Signal<Void>()
     
-    public func observeTheme<T: AnyObject>(_ object: T, _ f: @escaping (T) -> () -> Void) {
-        themeObservers.add(object) { (T) -> (()) -> Void in
-            return { _ in
-                f(object)()
-            }
-        }
-        f(object)()
+    public func observeTheme<T: AnyObject>(_ object: T, _ callback: @escaping () -> Void) {
+        themeObservers.subscribe(with: object, callback: callback)
+        callback()
     }
     
 }

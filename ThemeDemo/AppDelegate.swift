@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let appSettings = AppSettings()
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         ThemeController.shared.setTheme(DemoTheme.self)
         
         let viewController = ViewController(appSettings: appSettings)
@@ -39,13 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         // Observe theme changes
-        ThemeController.shared.observeTheme(self, type(of: self).themeDidChange)
+        ThemeController.shared.observeTheme(self) { [weak self] in
+            self?.window?.tintColor = DemoTheme.tintColor
+        }
         
         return true
-    }
-    
-    func themeDidChange() {
-        window?.tintColor = DemoTheme.tintColor
     }
 }
 

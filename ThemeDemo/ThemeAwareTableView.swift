@@ -24,10 +24,10 @@ import UIKit
 import Theme
 
 class ThemeAwareTableView: UITableView {
-    override init(frame: CGRect, style: UITableViewStyle) {
+    override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
-        observeTheme(type(of: self).themeDidChange)
+        observeTheme(themeDidChange)
     }
 
     required init?(coder aDecoder: NSCoder) {

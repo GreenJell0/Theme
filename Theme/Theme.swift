@@ -21,9 +21,8 @@
 //
 
 import Foundation
+import Signals
 
 public protocol Theme {
-    
     static func setTheme(themeName: String)
-    
 }

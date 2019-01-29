@@ -27,7 +27,7 @@ class ThemeAwareNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        observeTheme(type(of: self).themeDidChange)
+        observeTheme(themeDidChange)
     }
     
     func themeDidChange() {

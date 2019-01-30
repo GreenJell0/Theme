@@ -24,21 +24,20 @@ import UIKit
 import Theme
 
 class ThemeAwareTableViewCell: UITableViewCell {
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectedBackgroundView = UIView()
         
-        observeTheme(type(of: self).themeDidChange)
+        observeTheme { [weak self] in
+            self?.textLabel?.textColor = DemoTheme.tableViewCellTextColor
+            self?.backgroundColor = DemoTheme.tableViewCellBackgroundColor
+            self?.selectedBackgroundView?.backgroundColor = DemoTheme.tableViewCellSelectedBackgroundColor
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func themeDidChange() {
-        textLabel?.textColor = DemoTheme.tableViewCellTextColor
-        backgroundColor = DemoTheme.tableViewCellBackgroundColor
-        selectedBackgroundView?.backgroundColor = DemoTheme.tableViewCellSelectedBackgroundColor
-    }
 }

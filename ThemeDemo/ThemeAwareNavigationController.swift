@@ -27,17 +27,15 @@ class ThemeAwareNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        observeTheme(type(of: self).themeDidChange)
-    }
-    
-    func themeDidChange() {
-        switch DemoTheme.navigationBarBarStyle ?? "" {
-        case "black":
-            navigationBar.barStyle = .black
-            toolbar.barStyle = .black
-        default:
-            navigationBar.barStyle = .default
-            toolbar.barStyle = .default
+        observeTheme { [weak self] in
+            switch DemoTheme.navigationBarBarStyle ?? "" {
+            case "black":
+                self?.navigationBar.barStyle = .black
+                self?.toolbar.barStyle = .black
+            default:
+                self?.navigationBar.barStyle = .default
+                self?.toolbar.barStyle = .default
+            }
         }
     }
 }

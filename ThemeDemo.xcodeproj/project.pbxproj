@@ -188,18 +188,18 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ThemeDemo/Pods-ThemeDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ObserverSet/ObserverSet.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-ThemeDemo/Pods-ThemeDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Signals/Signals.framework",
 				"${BUILT_PRODUCTS_DIR}/Theme/Theme.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObserverSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Signals.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Theme.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ThemeDemo/Pods-ThemeDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThemeDemo/Pods-ThemeDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		89F091DCF2D41CBEE9FED572 /* [CP] Check Pods Manifest.lock */ = {
@@ -301,7 +301,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -348,7 +348,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

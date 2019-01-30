@@ -24,18 +24,17 @@ import UIKit
 import Theme
 
 class ThemeAwareTableView: UITableView {
-    override init(frame: CGRect, style: UITableViewStyle) {
+    override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
-        observeTheme(type(of: self).themeDidChange)
+        observeTheme { [weak self] in
+            self?.separatorColor = DemoTheme.tableViewSeparatorColor
+            self?.backgroundColor = DemoTheme.tableViewBackgroundColor
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func themeDidChange() {
-        separatorColor = DemoTheme.tableViewSeparatorColor
-        backgroundColor = DemoTheme.tableViewBackgroundColor
-    }
 }

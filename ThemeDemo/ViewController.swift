@@ -65,13 +65,9 @@ class ViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        observeTheme(themeDidChange)
+        observeTheme({})
     }
 
-    func themeDidChange() {
-        // You can make theme adjustments here
-    }
-    
     @objc func cycleTheme() {
         appSettings.cycleTheme()
     }

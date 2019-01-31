@@ -27,11 +27,13 @@ public protocol ThemeObserver {}
 extension ThemeObserver where Self: UIView {
     public func observeTheme(_ callback: @escaping () -> Void) {
         ThemeController.shared.themeObservers.subscribe(with: self, callback: callback)
+        callback()
     }
 }
 
 extension ThemeObserver where Self: UIViewController {
     public func observeTheme(_ callback: @escaping () -> Void) {
         ThemeController.shared.themeObservers.subscribe(with: self, callback: callback)
+        callback()
     }
 }

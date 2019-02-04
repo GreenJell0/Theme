@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Theme"
-  s.version      = "5.0.1"
+  s.version      = "5.0.2"
   s.summary      = "Support one or more configurable appearance themes."
   s.author       = 'Hilton Campbell', 'Stephan Heilner'
   s.homepage     = "https://github.com/CrossWaterBridge/Theme"
@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Theme/*.swift'
   s.requires_arc = true
   s.dependency 'Signals'
-  s.swift_version = '4.1'
+  s.swift_version = '4.2'
 end

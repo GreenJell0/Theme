@@ -27,7 +27,7 @@ public extension UIColor {
         static let regex = try! NSRegularExpression(pattern: "^(?:#([0-9a-fA-F]{3})|#([0-9a-fA-F]{6})|rgb\\(([^)]+)\\)|rgba\\(([^)]+)\\))$", options: [])
     }
     
-    public convenience init?(string: String) {
+    convenience init?(string: String) {
         if let match = Static.regex.firstMatch(in: string, options: [], range: NSMakeRange(0, (string as NSString).length)) {
             // #cf0
             let range1 = match.range(at: 1)

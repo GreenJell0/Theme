@@ -56,7 +56,7 @@ class AppSettings {
     
     func cycleTheme() {
         // Choose the next app theme
-        appTheme = AppTheme.Choices[((AppTheme.Choices.index(of: appTheme) ?? 0) + 1) % AppTheme.Choices.count]
+        appTheme = AppTheme.Choices[((AppTheme.Choices.firstIndex(of: appTheme) ?? 0) + 1) % AppTheme.Choices.count]
     }
     
 }

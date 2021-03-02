@@ -1,18 +1,18 @@
 PODS:
   - Signals (6.0.0)
-  - Theme (5.1.0):
+  - Theme (5.2.0):
     - Signals
 
 DEPENDENCIES:
   - Signals (from `https://github.com/artman/Signals.git`, tag `6.0.0`)
-  - Theme (from `.`)
+  - Theme (from `../`)
 
 EXTERNAL SOURCES:
   Signals:
     :git: https://github.com/artman/Signals.git
     :tag: 6.0.0
   Theme:
-    :path: "."
+    :path: "../"
 
 CHECKOUT OPTIONS:
   Signals:
@@ -20,9 +20,9 @@ CHECKOUT OPTIONS:
     :tag: 6.0.0
 
 SPEC CHECKSUMS:
-  Signals: 71e3b5832062e61d3703d6d5a760c3fafb637c0e
-  Theme: d1468428a21934567bec8b7bbcdc93b19f714510
+  Signals: e17e2bfa5ebd26c320fd07abf6b7933ec0abecb9
+  Theme: 15c6f63a34c1f0a7fc338c2245d1a715c71f3fff
 
-PODFILE CHECKSUM: 3e752682c594be31df507aa7e214e18971381922
+PODFILE CHECKSUM: d57f6420858f6b12d51b8386dfedc8319bfa1a07
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.10.1

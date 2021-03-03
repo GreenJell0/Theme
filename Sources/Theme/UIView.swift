@@ -20,8 +20,10 @@
 // THE SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 extension UIView: ThemeObserver {
     
 }
+#endif

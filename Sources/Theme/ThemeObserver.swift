@@ -20,6 +20,7 @@
 // THE SOFTWARE.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public protocol ThemeObserver {}
@@ -37,3 +38,4 @@ extension ThemeObserver where Self: UIViewController {
         callback()
     }
 }
+#endif

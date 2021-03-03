@@ -20,7 +20,8 @@ let package = Package(
     targets: [
         .target(
             name: "Theme",
-            dependencies: ["Signals"]),
+            dependencies: ["Signals"],
+            exclude: ["Info.plist"]),
         .testTarget(
             name: "ThemeTests",
             dependencies: ["Theme"]),

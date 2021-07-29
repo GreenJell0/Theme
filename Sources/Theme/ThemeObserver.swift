@@ -20,7 +20,7 @@
 // THE SOFTWARE.
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 public protocol ThemeObserver {}

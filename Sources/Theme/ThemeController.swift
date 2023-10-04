@@ -20,19 +20,28 @@
 // THE SOFTWARE.
 //
 
+import Combine
 import Foundation
-import Signals
 
 public class ThemeController: NSObject {
+    
     public static var shared = ThemeController()
     
-    fileprivate var theme: Theme.Type?
+    let themeSubject = PassthroughSubject<Void, Never>()
+
+    private var theme: Theme.Type?
+    private var cancellables = Set<AnyCancellable>()
+    
+    struct Subscription {
+        weak var object: AnyObject?
+        let cancellable: AnyCancellable
+    }
+    private var subscriptions = [Subscription]()
     
     public var themeName = "" {
         didSet {
             theme?.setTheme(themeName: themeName)
-
-            themeObservers.fire(())
+            handleThemeChange()
         }
     }
     
@@ -40,15 +49,31 @@ public class ThemeController: NSObject {
         self.theme = theme
         
         theme.setTheme(themeName: themeName)
-        
-        themeObservers.fire(())
+        handleThemeChange()
     }
-    
-    let themeObservers = Signal<Void>()
-    
+        
     public func observeTheme<T: AnyObject>(_ object: T, _ callback: @escaping () -> Void) {
-        themeObservers.subscribe(with: object, callback: callback)
+        let cancellable = themeSubject
+            .sink { _ in
+                callback()
+            }
+        subscriptions.append(Subscription(object: object, cancellable: cancellable))
+        
         callback()
     }
     
+    private func handleThemeChange() {
+        flushCancelledSubscriptions()
+        themeSubject.send()
+    }
+    
+    private func flushCancelledSubscriptions() {
+        subscriptions = subscriptions.filter { subscription in
+            if subscription.object == nil {
+                subscription.cancellable.cancel()
+                return false
+            }
+            return true
+        }
+    }
 }

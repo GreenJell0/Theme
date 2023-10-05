@@ -65,7 +65,10 @@ class ViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        observeTheme({})
+        observeTheme({ [weak self] in
+            print("theme changed: \(ThemeController.shared.themeName)")
+            self?.tableView.reloadData()
+        })
     }
 
     @objc func cycleTheme() {
@@ -106,7 +109,7 @@ extension ViewController: UITableViewDataSource {
         switch (indexPath as NSIndexPath).section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ViewController.CellIdentifier, for: indexPath)
-            cell.textLabel?.text = "Hello, world!"
+            cell.textLabel?.text = "theme: \(ThemeController.shared.themeName)"
             return cell
         default:
             break
@@ -120,6 +123,6 @@ extension ViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
+        navigationController?.pushViewController(ViewController(appSettings: appSettings), animated: true)
     }
 }

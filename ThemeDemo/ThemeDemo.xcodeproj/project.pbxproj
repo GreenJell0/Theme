@@ -3,17 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68A90D712ACE290A00FAE86D /* Theme in Frameworks */ = {isa = PBXBuildFile; productRef = 68A90D702ACE290A00FAE86D /* Theme */; };
 		7C2D9CB725EEDAE100FB37D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C2D9CB525EEDAE100FB37D5 /* LaunchScreen.storyboard */; };
-		8DE2ECA5C87B8C5DA30988A1 /* Pods_ThemeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C7F10960F5DFCC04C2A8B2 /* Pods_ThemeDemo.framework */; };
 		D4A675B61EB103A500355089 /* DemoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A675B51EB103A500355089 /* DemoTheme.swift */; };
 		D9D608DA1C31B10700B10DA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D608D91C31B10700B10DA6 /* AppDelegate.swift */; };
 		D9D608DC1C31B10700B10DA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D608DB1C31B10700B10DA6 /* ViewController.swift */; };
 		D9D608E11C31B10700B10DA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9D608E01C31B10700B10DA6 /* Assets.xcassets */; };
-		D9D608EC1C31B1A600B10DA6 /* Theme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D608EB1C31B1A600B10DA6 /* Theme.framework */; };
 		D9D608F01C31B44E00B10DA6 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D608EF1C31B44E00B10DA6 /* AppSettings.swift */; };
 		D9D608F51C31B60200B10DA6 /* ThemeAwareNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D608F41C31B60200B10DA6 /* ThemeAwareNavigationController.swift */; };
 		D9D608F81C31B6BD00B10DA6 /* ThemeAwareTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D608F61C31B6BD00B10DA6 /* ThemeAwareTableView.swift */; };
@@ -21,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		60C7F10960F5DFCC04C2A8B2 /* Pods_ThemeDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThemeDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68A90D6F2ACE28FE00FAE86D /* Theme */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Theme; path = ..; sourceTree = "<group>"; };
 		7C2D9CB625EEDAE100FB37D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4A675B51EB103A500355089 /* DemoTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTheme.swift; sourceTree = "<group>"; };
 		D9D608D61C31B10700B10DA6 /* ThemeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThemeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,13 +28,10 @@
 		D9D608DB1C31B10700B10DA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D9D608E01C31B10700B10DA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9D608E51C31B10700B10DA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9D608EB1C31B1A600B10DA6 /* Theme.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Theme.framework; path = "build/Debug-iphoneos/Theme.framework"; sourceTree = "<group>"; };
 		D9D608EF1C31B44E00B10DA6 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D9D608F41C31B60200B10DA6 /* ThemeAwareNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeAwareNavigationController.swift; sourceTree = "<group>"; };
 		D9D608F61C31B6BD00B10DA6 /* ThemeAwareTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeAwareTableView.swift; sourceTree = "<group>"; };
 		D9D608F71C31B6BD00B10DA6 /* ThemeAwareTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeAwareTableViewCell.swift; sourceTree = "<group>"; };
-		DA45654D2A2EB7DEEC648E08 /* Pods-ThemeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThemeDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThemeDemo/Pods-ThemeDemo.release.xcconfig"; sourceTree = "<group>"; };
-		F370711640D3FBEC97647B8F /* Pods-ThemeDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThemeDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThemeDemo/Pods-ThemeDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,31 +39,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9D608EC1C31B1A600B10DA6 /* Theme.framework in Frameworks */,
-				8DE2ECA5C87B8C5DA30988A1 /* Pods_ThemeDemo.framework in Frameworks */,
+				68A90D712ACE290A00FAE86D /* Theme in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		821FA9C399D75FD233D5CB10 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F370711640D3FBEC97647B8F /* Pods-ThemeDemo.debug.xcconfig */,
-				DA45654D2A2EB7DEEC648E08 /* Pods-ThemeDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		D9D608CD1C31B10700B10DA6 = {
 			isa = PBXGroup;
 			children = (
+				68A90D6F2ACE28FE00FAE86D /* Theme */,
 				D9D608D81C31B10700B10DA6 /* Main */,
 				D9D608F11C31B53100B10DA6 /* Supporting Files */,
 				D9D608F21C31B54A00B10DA6 /* Frameworks */,
 				D9D608D71C31B10700B10DA6 /* Products */,
-				821FA9C399D75FD233D5CB10 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,8 +92,6 @@
 		D9D608F21C31B54A00B10DA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D9D608EB1C31B1A600B10DA6 /* Theme.framework */,
-				60C7F10960F5DFCC04C2A8B2 /* Pods_ThemeDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,17 +103,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9D608E81C31B10700B10DA6 /* Build configuration list for PBXNativeTarget "ThemeDemo" */;
 			buildPhases = (
-				89F091DCF2D41CBEE9FED572 /* [CP] Check Pods Manifest.lock */,
 				D9D608D21C31B10700B10DA6 /* Sources */,
 				D9D608D31C31B10700B10DA6 /* Frameworks */,
 				D9D608D41C31B10700B10DA6 /* Resources */,
-				04338227914975AD2E027EB6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ThemeDemo;
+			packageProductDependencies = (
+				68A90D702ACE290A00FAE86D /* Theme */,
+			);
 			productName = ThemeDemo;
 			productReference = D9D608D61C31B10700B10DA6 /* ThemeDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -179,47 +164,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		04338227914975AD2E027EB6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ThemeDemo/Pods-ThemeDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Signals/Signals.framework",
-				"${BUILT_PRODUCTS_DIR}/Theme/Theme.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Signals.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Theme.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThemeDemo/Pods-ThemeDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89F091DCF2D41CBEE9FED572 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ThemeDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D9D608D21C31B10700B10DA6 /* Sources */ = {
@@ -353,7 +297,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -362,11 +307,14 @@
 		};
 		D9D608E91C31B10700B10DA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F370711640D3FBEC97647B8F /* Pods-ThemeDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.crosswaterbridge.ThemeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -374,11 +322,14 @@
 		};
 		D9D608EA1C31B10700B10DA6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA45654D2A2EB7DEEC648E08 /* Pods-ThemeDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.crosswaterbridge.ThemeDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -406,6 +357,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		68A90D702ACE290A00FAE86D /* Theme */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Theme;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D9D608CE1C31B10700B10DA6 /* Project object */;
 }

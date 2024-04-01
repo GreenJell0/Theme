@@ -6,6 +6,11 @@
 
 Support one or more configurable appearance themes.
 
+
+## Privacy Manifest
+
+* This package uses UserDefaults to record the currently selected theme. 
+
 ### Installation
 
 Install with CocoaPods by adding the following to your Podfile:

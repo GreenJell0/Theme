@@ -18,7 +18,10 @@ let package = Package(
     targets: [
         .target(
             name: "Theme",
-            exclude: ["Info.plist"]),
+            path: "Sources/Theme",
+            exclude: ["Info.plist"],
+            resources: [.copy("PrivacyInfo.xcprivacy")]
+        ),
         .testTarget(
             name: "ThemeTests",
             dependencies: ["Theme"]),
